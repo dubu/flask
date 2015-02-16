@@ -1,5 +1,6 @@
 from flask import Flask
 from flaskext.mysql import MySQL
+import pprint
 
 mysql = MySQL()
 app = Flask(__name__)
@@ -13,10 +14,6 @@ mysql.init_app(app)
 def hello():
     return "Welcome to Python Flask App!"
 
-if __name__ == "__main__":
-    app.debug = True  # autoreload
-    app.run(host='0.0.0.0')  # allow outside
-
 @app.route("/select")
 def list():
     cursor = mysql.connect().cursor()
@@ -25,4 +22,9 @@ def list():
     if data is None:
         return "Username or Password is wrong"
     else:
+        pprint.pprint(data)
         return "Logged in successfully"
+
+if __name__ == "__main__":
+    app.debug = True  # auto_reload
+    app.run(host='0.0.0.0')  # allow outside
