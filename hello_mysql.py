@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['MYSQL_DATABASE_USER'] = 'scrapy'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'scrapy'
 app.config['MYSQL_DATABASE_DB'] = 'scrapy'
-app.config['MYSQL_DATABASE_HOST'] = '52.10.2.102'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
 @app.route("/")
